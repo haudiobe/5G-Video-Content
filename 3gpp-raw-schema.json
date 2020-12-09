@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://example.com/example.json",
+    "$id": "http://3gpp.org/3gpp-raw-video-schema.json",
     "type": "object",
     "title": "3GPP 5G Video Raw Sequence Format",
     "description": "Provides the raw 3GPP 5G Video Raw Sequence Format.",
