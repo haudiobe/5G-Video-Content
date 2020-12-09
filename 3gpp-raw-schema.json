@@ -3,7 +3,7 @@
     "$id": "http://example.com/example.json",
     "type": "object",
     "title": "3GPP 5G Video Raw Sequence Format",
-    "description": "The root schema comprises the entire JSON document.",
+    "description": "Provides the raw 3GPP 5G Video Raw Sequence Format.",
     "default": {},
     "examples": [
         {
@@ -21,10 +21,10 @@
                 "subsampling": "420",
                 "bitDepth": 8,
                 "frameRate": 30,
-                "colourPrimaries": "1",
-                "transferCharacteristics": "1",
-                "matrixCoefficients": "1",
-                "sampleAspectRatio": "1",
+                "colourPrimaries": 1,
+                "transferCharacteristics": 1,
+                "matrixCoefficients": 1,
+                "sampleAspectRatio": 1,
                 "duration": 10.0,
                 "frameCount": 30
             },
@@ -119,10 +119,10 @@
                     "subsampling": "420",
                     "bitDepth": 8,
                     "frameRate": 30,
-                    "colourPrimaries": "1",
-                    "transferCharacteristics": "1",
-                    "matrixCoefficients": "1",
-                    "sampleAspectRatio": "1",
+                    "colourPrimaries": 1,
+                    "transferCharacteristics": 1,
+                    "matrixCoefficients": 1,
+                    "sampleAspectRatio": 1,
                     "duration": 10.0,
                     "frameCount": 30
                 }
