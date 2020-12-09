@@ -1,0 +1,320 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "Sequence": {
+                "fileURI": "./sequence.yuv",
+                "md5": "824fe384be7b0095c391ff6c5a5acc53"
+            },
+            "Properties": {
+                "width": 1280,
+                "height": 720,
+                "chromaFormat": "yuv",
+                "chromaSubsampling": "420",
+                "par": "4:3",
+                "bitDepth": 8,
+                "frameRate": 30,
+                "colourPrimaries": "1",
+                "transferCharacteristics": "1",
+                "matrixCoefficients": "1",
+                "sampleAspectRatio": "1",
+                "duration": 10.0,
+                "frameCount": 30
+            },
+            "copyRight": "This material has been recorded by the Thomas Stockhammer, who owns the copyright. Thomas Stockhammer (licensor) has licensed it under the Creative Commons Attribution 4.0 license (https://creativecommons.org/licenses/by/4.0/). In short, this means you can freely reuse and distribute this content, also commercially, for as long you provide a proper attribution.",
+            "Contact": {
+                "Name": "Thomas Stockhammer",
+                "Company": "Qualcomm",
+                "e-mail": "tsto@qti.qualcomm.com"
+            }
+        }
+    ],
+    "required": [
+        "Sequence",
+        "Properties",
+        "copyRight",
+        "Contact"
+    ],
+    "properties": {
+        "Sequence": {
+            "$id": "#/properties/Sequence",
+            "type": "object",
+            "title": "The Sequence schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "fileURI": "./sequence.yuv",
+                    "md5": "824fe384be7b0095c391ff6c5a5acc53"
+                }
+            ],
+            "required": [
+                "fileURI",
+                "md5"
+            ],
+            "properties": {
+                "fileURI": {
+                    "$id": "#/properties/Sequence/properties/fileURI",
+                    "type": "string",
+                    "title": "The fileURI schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "./sequence.yuv"
+                    ]
+                },
+                "md5": {
+                    "$id": "#/properties/Sequence/properties/md5",
+                    "type": "string",
+                    "title": "The md5 schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "824fe384be7b0095c391ff6c5a5acc53"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "Properties": {
+            "$id": "#/properties/Properties",
+            "type": "object",
+            "title": "The Properties schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "width": 1280,
+                    "height": 720,
+                    "chromaFormat": "yuv",
+                    "chromaSubsampling": "420",
+                    "par": "4:3",
+                    "bitDepth": 8,
+                    "frameRate": 30,
+                    "colourPrimaries": "1",
+                    "transferCharacteristics": "1",
+                    "matrixCoefficients": "1",
+                    "sampleAspectRatio": "1",
+                    "duration": 10.0,
+                    "frameCount": 30
+                }
+            ],
+            "required": [
+                "width",
+                "height",
+                "chromaFormat",
+                "chromaSubsampling",
+                "par",
+                "bitDepth",
+                "frameRate",
+                "colourPrimaries",
+                "transferCharacteristics",
+                "matrixCoefficients",
+                "sampleAspectRatio",
+                "duration",
+                "frameCount"
+            ],
+            "properties": {
+                "width": {
+                    "$id": "#/properties/Properties/properties/width",
+                    "type": "integer",
+                    "title": "The width schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        1280
+                    ]
+                },
+                "height": {
+                    "$id": "#/properties/Properties/properties/height",
+                    "type": "integer",
+                    "title": "The height schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        720
+                    ]
+                },
+                "chromaFormat": {
+                    "$id": "#/properties/Properties/properties/chromaFormat",
+                    "type": "string",
+                    "title": "The chromaFormat schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "yuv"
+                    ]
+                },
+                "chromaSubsampling": {
+                    "$id": "#/properties/Properties/properties/chromaSubsampling",
+                    "type": "string",
+                    "title": "The chromaSubsampling schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "420"
+                    ]
+                },
+                "par": {
+                    "$id": "#/properties/Properties/properties/par",
+                    "type": "string",
+                    "title": "The par schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "4:3"
+                    ]
+                },
+                "bitDepth": {
+                    "$id": "#/properties/Properties/properties/bitDepth",
+                    "type": "integer",
+                    "title": "The bitDepth schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        8
+                    ]
+                },
+                "frameRate": {
+                    "$id": "#/properties/Properties/properties/frameRate",
+                    "type": "integer",
+                    "title": "The frameRate schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        30
+                    ]
+                },
+                "colourPrimaries": {
+                    "$id": "#/properties/Properties/properties/colourPrimaries",
+                    "type": "string",
+                    "title": "The colourPrimaries schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "1"
+                    ]
+                },
+                "transferCharacteristics": {
+                    "$id": "#/properties/Properties/properties/transferCharacteristics",
+                    "type": "string",
+                    "title": "The transferCharacteristics schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "1"
+                    ]
+                },
+                "matrixCoefficients": {
+                    "$id": "#/properties/Properties/properties/matrixCoefficients",
+                    "type": "string",
+                    "title": "The matrixCoefficients schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "1"
+                    ]
+                },
+                "sampleAspectRatio": {
+                    "$id": "#/properties/Properties/properties/sampleAspectRatio",
+                    "type": "string",
+                    "title": "The sampleAspectRatio schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "1"
+                    ]
+                },
+                "duration": {
+                    "$id": "#/properties/Properties/properties/duration",
+                    "type": "number",
+                    "title": "The duration schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0.0,
+                    "examples": [
+                        10.0
+                    ]
+                },
+                "frameCount": {
+                    "$id": "#/properties/Properties/properties/frameCount",
+                    "type": "integer",
+                    "title": "The frameCount schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        30
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "copyRight": {
+            "$id": "#/properties/copyRight",
+            "type": "string",
+            "title": "The copyRight schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "This material has been recorded by the Thomas Stockhammer, who owns the copyright. Thomas Stockhammer (licensor) has licensed it under the Creative Commons Attribution 4.0 license (https://creativecommons.org/licenses/by/4.0/). In short, this means you can freely reuse and distribute this content, also commercially, for as long you provide a proper attribution."
+            ]
+        },
+        "Contact": {
+            "$id": "#/properties/Contact",
+            "type": "object",
+            "title": "The Contact schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "Name": "Thomas Stockhammer",
+                    "Company": "Qualcomm",
+                    "e-mail": "tsto@qti.qualcomm.com"
+                }
+            ],
+            "required": [
+                "Name",
+                "Company",
+                "e-mail"
+            ],
+            "properties": {
+                "Name": {
+                    "$id": "#/properties/Contact/properties/Name",
+                    "type": "string",
+                    "title": "The Name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Thomas Stockhammer"
+                    ]
+                },
+                "Company": {
+                    "$id": "#/properties/Contact/properties/Company",
+                    "type": "string",
+                    "title": "The Company schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Qualcomm"
+                    ]
+                },
+                "e-mail": {
+                    "$id": "#/properties/Contact/properties/e-mail",
+                    "type": "string",
+                    "title": "The e-mail schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "tsto@qti.qualcomm.com"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": true
+}
