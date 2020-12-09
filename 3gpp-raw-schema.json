@@ -339,7 +339,8 @@
                 },
                 "e-mail": {
                     "$id": "#/properties/Contact/properties/e-mail",
-                    "type": "e-mail",
+                    "type": "string",
+                    "format": "e-mail",
                     "title": "E-mail",
                     "description": "E-mail address of contact person.",
                     "default": "",
