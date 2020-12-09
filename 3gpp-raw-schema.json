@@ -63,7 +63,8 @@
             "properties": {
                 "URI": {
                     "$id": "#/properties/Sequence/properties/URI",
-                    "type": "uri",
+                    "type": "string",
+                    "format": "uri",
                     "title": "The URI schema",
                     "description": "An explanation about the purpose of this instance.",
                     "default": "",
@@ -83,7 +84,8 @@
                 },
                 "thumbnail": {
                     "$id": "#/properties/Sequence/properties/thumbnail",
-                    "type": "uri",
+                    "type": "string",
+                    "format": "uri",
                     "title": "The thumbnail schema",
                     "description": "An image providing a thumbnail.",
                     "default": "",
@@ -93,7 +95,8 @@
                 },
                 "preview": {
                     "$id": "#/properties/Sequence/properties/preview",
-                    "type": "uri",
+                    "type": "string",
+                    "format": "uri",
                     "title": "The preview schema",
                     "description": "An mp4 providing a preview.",
                     "default": "",
