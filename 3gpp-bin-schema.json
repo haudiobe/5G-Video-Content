@@ -247,7 +247,7 @@
       "properties": {
         "Bitrate": {
           "$id": "#/properties/Metrics/properties/PSNR",
-          "type": "Number",
+          "type": "number",
           "title": "Bitrate",
           "description": "Bitrate as defined in TR26.955 in MBit/s.",
           "default": "",
@@ -257,7 +257,7 @@
         },
         "PSNR": {
           "$id": "#/properties/Metrics/properties/PSNR",
-          "type": "Number",
+          "type": "number",
           "title": "PSNR",
           "description": "PSNR as defined in TR26.955 in dB.",
           "default": "",
@@ -267,7 +267,7 @@
         },
         "SSIM": {
           "$id": "#/properties/Metrics/properties/SSIM",
-          "type": "Number",
+          "type": "number",
           "title": "SSIM",
           "description": "SSIM as defined in TR26.955 in dB.",
           "default": "",
@@ -277,7 +277,7 @@
         },
         "VMAF": {
           "$id": "#/properties/Metrics/properties/VMAF",
-          "type": "Number",
+          "type": "number",
           "title": "VMAF",
           "description": "VMAF as defined in TR26.955 in dB.",
           "default": "",
@@ -338,7 +338,8 @@
         },
         "e-mail": {
           "$id": "#/properties/Contact/properties/e-mail",
-          "type": "e-mail",
+          "type": "string",
+          "format": "e-mail",            
           "title": "E-mail",
           "description": "contact e-mail.",
           "default": "",
