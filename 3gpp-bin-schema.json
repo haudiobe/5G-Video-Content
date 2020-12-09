@@ -161,7 +161,8 @@
         },
         "log-file": {
           "$id": "#/properties/Generation/properties/log-file",
-          "type": "URI",
+          "type": "string",
+          "format": "uri",
           "title": "Encoder Log File",
           "description": "Encoder log file reference.",
           "default": "",
@@ -202,7 +203,8 @@
         },
         "log-file": {
           "$id": "#/properties/Reconstruction/properties/log-file",
-          "type": "URI",
+          "type": "string",
+          "format": "uri",
           "title": "Log File",
           "description": "provides a URI to the decoder log file.",
           "default": "",
