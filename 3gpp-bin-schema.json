@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://example.com/example.json",
+    "$id": "http://3gpp.org/3gpp-bin-schema.json",
     "type": "object",
     "title": "The root schema",
     "description": "The root schema comprises the entire JSON document.",
@@ -10,7 +10,7 @@
             "Bitstream": {
                 "URI": "./sequence.bin",
                 "md5": "824fe384be7b0095c391ff6c5a5acc53",
-                "codecs": "avc1.153"
+                "codecs": "avc1.64002a"
             },
             "Generation": {
                 "sequence": "./sequence.json",
@@ -25,10 +25,10 @@
                 "md5": "824fe384be7b0095c391ff6c5a5acc53"
             },
             "Metrics": {
-                "tool": "HDRTools",
-                "PSNR": "27",
-                "SSIM": "14",
-                "VMAF": "18"
+                "Bitrate": 4.32,
+                "PSNR": 27.2,
+                "SSIM": 14.8,
+                "VMAF": 18.7
             },
             "copyRight": "This material has been recorded by the Thomas Stockhammer, who owns the copyright. Thomas Stockhammer (licensor) has licensed it under the Creative Commons Attribution 4.0 license (https://creativecommons.org/licenses/by/4.0/). In short, this means you can freely reuse and distribute this content, also commercially, for as long you provide a proper attribution.",
             "Contact": {
@@ -42,22 +42,20 @@
         "Bitstream",
         "Generation",
         "Reconstruction",
-        "Metrics",
-        "copyRight",
-        "Contact"
+        "copyRight"
     ],
     "properties": {
         "Bitstream": {
             "$id": "#/properties/Bitstream",
-            "type": "object",
-            "title": "The Bitstream schema",
-            "description": "An explanation about the purpose of this instance.",
+            "type": "URI",
+            "title": "Bitstream",
+            "description": "The URI to the bitstream.",
             "default": {},
             "examples": [
                 {
                     "URI": "./sequence.bin",
                     "md5": "824fe384be7b0095c391ff6c5a5acc53",
-                    "codecs": "avc1.153"
+                    "codecs": "avc1.64002a"
                 }
             ],
             "required": [
@@ -89,11 +87,11 @@
                 "codecs": {
                     "$id": "#/properties/Bitstream/properties/codecs",
                     "type": "string",
-                    "title": "The codecs schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Codecs",
+                    "description": "Provides the codecs string parameter including profile and level.",
                     "default": "",
                     "examples": [
-                        "avc1.153"
+                        "avc1.64002a"
                     ]
                 }
             },
@@ -102,31 +100,29 @@
         "Generation": {
             "$id": "#/properties/Generation",
             "type": "object",
-            "title": "The Generation schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "Generation Details",
+            "description": "Provides details how the bitstream was generated.",
             "default": {},
             "examples": [
                 {
                     "sequence": "./sequence.json",
                     "encoder": "JM19.0",
                     "config-file": "./encoder.cfg",
-                    "config-variant": "-qp 27",
-                    "log-file": "./decoder.log"
+                    "config-variant": "QP 27",
+                    "log-file": "./encoder.log"
                 }
             ],
             "required": [
                 "sequence",
                 "encoder",
                 "config-file",
-                "config-variant",
-                "log-file"
             ],
             "properties": {
                 "sequence": {
                     "$id": "#/properties/Generation/properties/sequence",
                     "type": "string",
-                    "title": "The sequence schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Reference Sequence",
+                    "description": "provides a URI to the reference sequence used for encoding. Should point to a 3GPP raw json doc.",
                     "default": "",
                     "examples": [
                         "./sequence.json"
@@ -135,18 +131,19 @@
                 "encoder": {
                     "$id": "#/properties/Generation/properties/encoder",
                     "type": "string",
-                    "title": "The encoder schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Encoder",
+                    "description": "The encoder used for generating the bitstream",
                     "default": "",
                     "examples": [
-                        "JM19.0"
+                        "JM19.0",
+                        "HM16.22"
                     ]
                 },
                 "config-file": {
                     "$id": "#/properties/Generation/properties/config-file",
                     "type": "string",
-                    "title": "The config-file schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Configuration File",
+                    "description": "configuration file used for encoding.",
                     "default": "",
                     "examples": [
                         "./encoder.cfg"
@@ -155,21 +152,21 @@
                 "config-variant": {
                     "$id": "#/properties/Generation/properties/config-variant",
                     "type": "string",
-                    "title": "The config-variant schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Configuration variant",
+                    "description": "for the creation of a variant on top of the configuration files.",
                     "default": "",
                     "examples": [
-                        "-qp 27"
+                        "QP 27"
                     ]
                 },
                 "log-file": {
                     "$id": "#/properties/Generation/properties/log-file",
-                    "type": "string",
-                    "title": "The log-file schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "type": "URI",
+                    "title": "Encoder Log File",
+                    "description": "Encoder log file reference.",
                     "default": "",
                     "examples": [
-                        "./decoder.log"
+                        "./encoder.log"
                     ]
                 }
             },
@@ -178,8 +175,8 @@
         "Reconstruction": {
             "$id": "#/properties/Reconstruction",
             "type": "object",
-            "title": "The Reconstruction schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "Reconstructed Sequence",
+            "description": "Properties of the contructed sequence.",
             "default": {},
             "examples": [
                 {
@@ -189,26 +186,25 @@
                 }
             ],
             "required": [
-                "decoder",
-                "log-file",
                 "md5"
             ],
             "properties": {
                 "decoder": {
                     "$id": "#/properties/Reconstruction/properties/decoder",
                     "type": "string",
-                    "title": "The decoder schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Decoder",
+                    "description": "Decoder used for reconstruction.",
                     "default": "",
                     "examples": [
-                        "JM19.0"
+                        "JM19.0",
+                        "HM16.22"
                     ]
                 },
                 "log-file": {
                     "$id": "#/properties/Reconstruction/properties/log-file",
-                    "type": "string",
-                    "title": "The log-file schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "type": "URI",
+                    "title": "Log File",
+                    "description": "provides a URI to the decoder log file.",
                     "default": "",
                     "examples": [
                         "./decoder.log"
@@ -217,8 +213,8 @@
                 "md5": {
                     "$id": "#/properties/Reconstruction/properties/md5",
                     "type": "string",
-                    "title": "The md5 schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "MD5",
+                    "description": "MD5 of the reconstructed sequence with the same properties as the encoded one.",
                     "default": "",
                     "examples": [
                         "824fe384be7b0095c391ff6c5a5acc53"
@@ -230,62 +226,59 @@
         "Metrics": {
             "$id": "#/properties/Metrics",
             "type": "object",
-            "title": "The Metrics schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "Metrics",
+            "description": "Documents the 3GPP metrics.",
             "default": {},
             "examples": [
                 {
-                    "tool": "HDRTools",
-                    "PSNR": "27",
-                    "SSIM": "14",
-                    "VMAF": "18"
+                    "Bitrate": 4.32,
+                    "PSNR": 27.2,
+                    "SSIM": 14.3",
+                    "VMAF": 18.4
                 }
             ],
             "required": [
-                "tool",
-                "PSNR",
-                "SSIM",
-                "VMAF"
+                "Bitrate",
+                "PSNR"
             ],
             "properties": {
-                "tool": {
-                    "$id": "#/properties/Metrics/properties/tool",
-                    "type": "string",
-                    "title": "The tool schema",
-                    "description": "An explanation about the purpose of this instance.",
+                "Bitrate": {
+                    "$id": "#/properties/Metrics/properties/PSNR",
+                    "type": "Number",
+                    "title": "Bitrate",
+                    "description": "Bitrate as defined in TR26.955 in MBit/s.",
                     "default": "",
                     "examples": [
-                        "HDRTools"
+                        4.32
                     ]
                 },
                 "PSNR": {
                     "$id": "#/properties/Metrics/properties/PSNR",
-                    "type": "string",
-                    "title": "The PSNR schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "type": "Number",
+                    "title": "PSNR",
+                    "description": "PSNR as defined in TR26.955 in dB.",
                     "default": "",
                     "examples": [
-                        "27"
+                        27.2
                     ]
                 },
                 "SSIM": {
                     "$id": "#/properties/Metrics/properties/SSIM",
-                    "type": "string",
-                    "title": "The SSIM schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "type": "Number",
+                    "title": "SSIM",
+                    "description": "SSIM as defined in TR26.955 in dB.",
                     "default": "",
                     "examples": [
-                        "14"
-                    ]
-                },
+                        14.8
+                    ]                },
                 "VMAF": {
                     "$id": "#/properties/Metrics/properties/VMAF",
-                    "type": "string",
-                    "title": "The VMAF schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "type": "Number",
+                    "title": "VMAF",
+                    "description": "VMAF as defined in TR26.955 in dB.",
                     "default": "",
                     "examples": [
-                        "18"
+                        18.4
                     ]
                 }
             },
@@ -294,8 +287,8 @@
         "copyRight": {
             "$id": "#/properties/copyRight",
             "type": "string",
-            "title": "The copyRight schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "CopyRight",
+            "description": "Copyright Statement of the encoded video sequences.",
             "default": "",
             "examples": [
                 "This material has been recorded by the Thomas Stockhammer, who owns the copyright. Thomas Stockhammer (licensor) has licensed it under the Creative Commons Attribution 4.0 license (https://creativecommons.org/licenses/by/4.0/). In short, this means you can freely reuse and distribute this content, also commercially, for as long you provide a proper attribution."
@@ -304,8 +297,8 @@
         "Contact": {
             "$id": "#/properties/Contact",
             "type": "object",
-            "title": "The Contact schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "Contact",
+            "description": "Contact Person.",
             "default": {},
             "examples": [
                 {
@@ -316,15 +309,14 @@
             ],
             "required": [
                 "Name",
-                "Company",
                 "e-mail"
             ],
             "properties": {
                 "Name": {
                     "$id": "#/properties/Contact/properties/Name",
                     "type": "string",
-                    "title": "The Name schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Name",
+                    "description": "Person you can ask if you have questions.",
                     "default": "",
                     "examples": [
                         "Thomas Stockhammer"
@@ -333,8 +325,8 @@
                 "Company": {
                     "$id": "#/properties/Contact/properties/Company",
                     "type": "string",
-                    "title": "The Company schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Company",
+                    "description": "Company.",
                     "default": "",
                     "examples": [
                         "Qualcomm"
@@ -342,9 +334,9 @@
                 },
                 "e-mail": {
                     "$id": "#/properties/Contact/properties/e-mail",
-                    "type": "string",
-                    "title": "The e-mail schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "type": "e-mail",
+                    "title": "E-mail",
+                    "description": "contact e-mail.",
                     "default": "",
                     "examples": [
                         "tsto@qti.qualcomm.com"
