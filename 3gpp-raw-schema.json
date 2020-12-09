@@ -261,7 +261,7 @@
                     "description": "SampleAspectRatio according to ITU-T H.273.",
                     "default": 1,
                     "examples": [
-                        1,
+                        1
                     ]
                 },
                 "duration": {
