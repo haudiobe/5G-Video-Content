@@ -171,8 +171,7 @@
                     "enum": ["yuv", "rgb"],
                     "title": "The format schema",
                     "description": "Format of the components",
-                    "default": "yuv",
-                    ]
+                    "default": "yuv"
                 },
                 "packing": {
                     "$id": "#/properties/Properties/properties/packing",
