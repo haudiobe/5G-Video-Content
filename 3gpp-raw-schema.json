@@ -2,21 +2,23 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "http://example.com/example.json",
     "type": "object",
-    "title": "The root schema",
+    "title": "3GPP 5G Video Raw Sequence Format",
     "description": "The root schema comprises the entire JSON document.",
     "default": {},
     "examples": [
         {
             "Sequence": {
-                "fileURI": "./sequence.yuv",
-                "md5": "824fe384be7b0095c391ff6c5a5acc53"
+                "URI": "./sequence.yuv",
+                "md5": "824fe384be7b0095c391ff6c5a5acc53",
+                "thumbnail": "./sequence.jpg",
+                "preview": "./sequence.mp4"
             },
             "Properties": {
                 "width": 1280,
                 "height": 720,
-                "chromaFormat": "yuv",
-                "chromaSubsampling": "420",
-                "par": "4:3",
+                "format": "yuv",
+                "packing": "interleaved",
+                "subsampling": "420",
                 "bitDepth": 8,
                 "frameRate": 30,
                 "colourPrimaries": "1",
@@ -37,31 +39,32 @@
     "required": [
         "Sequence",
         "Properties",
-        "copyRight",
-        "Contact"
+        "copyRight"
     ],
     "properties": {
         "Sequence": {
             "$id": "#/properties/Sequence",
             "type": "object",
-            "title": "The Sequence schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "Sequence schema",
+            "description": "provides the details of the Sequence.",
             "default": {},
             "examples": [
                 {
-                    "fileURI": "./sequence.yuv",
-                    "md5": "824fe384be7b0095c391ff6c5a5acc53"
+                    "URI": "./sequence.yuv",
+                    "md5": "824fe384be7b0095c391ff6c5a5acc53",
+                    "thumbnail": "./sequence.jpg",
+                    "preview": "./sequence.mp4"
                 }
             ],
             "required": [
-                "fileURI",
+                "URI",
                 "md5"
             ],
             "properties": {
-                "fileURI": {
-                    "$id": "#/properties/Sequence/properties/fileURI",
-                    "type": "string",
-                    "title": "The fileURI schema",
+                "URI": {
+                    "$id": "#/properties/Sequence/properties/URI",
+                    "type": "uri",
+                    "title": "The URI schema",
                     "description": "An explanation about the purpose of this instance.",
                     "default": "",
                     "examples": [
@@ -72,10 +75,30 @@
                     "$id": "#/properties/Sequence/properties/md5",
                     "type": "string",
                     "title": "The md5 schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "description": "MD5 of the sequence file according to RFC1321.",
                     "default": "",
                     "examples": [
                         "824fe384be7b0095c391ff6c5a5acc53"
+                    ]
+                },
+                "thumbnail": {
+                    "$id": "#/properties/Sequence/properties/thumbnail",
+                    "type": "uri",
+                    "title": "The thumbnail schema",
+                    "description": "An image providing a thumbnail.",
+                    "default": "",
+                    "examples": [
+                        "./sequence.jpg"
+                    ]
+                },
+                "preview": {
+                    "$id": "#/properties/Sequence/properties/preview",
+                    "type": "uri",
+                    "title": "The preview schema",
+                    "description": "An mp4 providing a preview.",
+                    "default": "",
+                    "examples": [
+                        "./sequence.mp4"
                     ]
                 }
             },
@@ -91,9 +114,9 @@
                 {
                     "width": 1280,
                     "height": 720,
-                    "chromaFormat": "yuv",
-                    "chromaSubsampling": "420",
-                    "par": "4:3",
+                    "format": "yuv",
+                    "packing": "interleaved",
+                    "subsampling": "420",
                     "bitDepth": 8,
                     "frameRate": 30,
                     "colourPrimaries": "1",
@@ -107,135 +130,146 @@
             "required": [
                 "width",
                 "height",
-                "chromaFormat",
-                "chromaSubsampling",
-                "par",
+                "format",
+                "packing",
+                "subsampling",
                 "bitDepth",
                 "frameRate",
                 "colourPrimaries",
                 "transferCharacteristics",
                 "matrixCoefficients",
-                "sampleAspectRatio",
-                "duration",
                 "frameCount"
             ],
             "properties": {
                 "width": {
                     "$id": "#/properties/Properties/properties/width",
                     "type": "integer",
-                    "title": "The width schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "title": "Width",
+                    "description": "Width of first component in number of pixel",
+                    "default": 1920,
                     "examples": [
+                        3840,
+                        1920,
                         1280
                     ]
                 },
                 "height": {
                     "$id": "#/properties/Properties/properties/height",
                     "type": "integer",
-                    "title": "The height schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Height",
+                    "description": "Height of first component in number of pixel.",
                     "default": 0,
                     "examples": [
+                        2160,
+                        1080,
                         720
                     ]
                 },
-                "chromaFormat": {
-                    "$id": "#/properties/Properties/properties/chromaFormat",
+                "format": {
+                    "$id": "#/properties/Properties/properties/format",
                     "type": "string",
-                    "title": "The chromaFormat schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "yuv"
+                    "enum": ["yuv", "rgb"],
+                    "title": "The format schema",
+                    "description": "Format of the components",
+                    "default": "yuv",
                     ]
                 },
-                "chromaSubsampling": {
-                    "$id": "#/properties/Properties/properties/chromaSubsampling",
+                "packing": {
+                    "$id": "#/properties/Properties/properties/packing",
                     "type": "string",
-                    "title": "The chromaSubsampling schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "420"
-                    ]
+                    "enum": ["interleaved", "planar"],                    
+                    "title": "Component packing",
+                    "description": "How is the component packed.",
+                    "default": "planar"
                 },
-                "par": {
-                    "$id": "#/properties/Properties/properties/par",
+                "subsampling": {
+                    "$id": "#/properties/Properties/properties/subsampling",
                     "type": "string",
-                    "title": "The par schema",
+                    "enum": ["420", "422", "444"],                    
+                    "title": "Subsampling pattern",
                     "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "4:3"
-                    ]
+                    "default": "420"
                 },
                 "bitDepth": {
                     "$id": "#/properties/Properties/properties/bitDepth",
                     "type": "integer",
-                    "title": "The bitDepth schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
-                    "examples": [
-                        8
-                    ]
+                    "enum": [8, 10, 12, 16],                    
+                    "title": "Bitdepth",
+                    "description": "Bitdepth of the signal",
+                    "default": 8
                 },
                 "frameRate": {
                     "$id": "#/properties/Properties/properties/frameRate",
-                    "type": "integer",
-                    "title": "The frameRate schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "type": "number",
+                    "title": "Frame Rate",
+                    "description": "provides the frame rate of the sequence",
+                    "default": 30,
                     "examples": [
-                        30
+                        24,
+                        25,
+                        30,
+                        60,
+                        90,
+                        120
                     ]
                 },
                 "colourPrimaries": {
                     "$id": "#/properties/Properties/properties/colourPrimaries",
-                    "type": "string",
-                    "title": "The colourPrimaries schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 12,
+                    "title": "Colour Primaries",
+                    "description": "ColourPrimaries according to ITU-T H.273.",
+                    "default": 1,
                     "examples": [
-                        "1"
+                        1,
+                        9
                     ]
                 },
                 "transferCharacteristics": {
                     "$id": "#/properties/Properties/properties/transferCharacteristics",
-                    "type": "string",
-                    "title": "The transferCharacteristics schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 18,
+                    "title": "TransferCharacteristics",
+                    "description": "TransferCharacteristics according to ITU-T H.273.",
+                    "default": 1,
                     "examples": [
-                        "1"
+                        1,
+                        14,
+                        16,
+                        18
                     ]
                 },
                 "matrixCoefficients": {
                     "$id": "#/properties/Properties/properties/matrixCoefficients",
-                    "type": "string",
-                    "title": "The matrixCoefficients schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 12,
+                    "title": "Matrix Coefficients",
+                    "description": "MatrixCoefficients according to ITU-T H.273.",
+                    "default": 1,
                     "examples": [
-                        "1"
+                        1,
+                        9
                     ]
                 },
                 "sampleAspectRatio": {
-                    "$id": "#/properties/Properties/properties/sampleAspectRatio",
-                    "type": "string",
-                    "title": "The sampleAspectRatio schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 16,
+                    "title": "SampleAspectRatio",
+                    "description": "SampleAspectRatio according to ITU-T H.273.",
+                    "default": 1,
                     "examples": [
-                        "1"
+                        1,
                     ]
                 },
                 "duration": {
                     "$id": "#/properties/Properties/properties/duration",
                     "type": "number",
-                    "title": "The duration schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0.0,
+                    "title": "Duration",
+                    "description": "Duration of the sequence in seconds",
                     "examples": [
                         10.0
                     ]
@@ -243,11 +277,11 @@
                 "frameCount": {
                     "$id": "#/properties/Properties/properties/frameCount",
                     "type": "integer",
-                    "title": "The frameCount schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Total number of frames",
+                    "description": "Total number of frames in the sequence.",
                     "default": 0,
                     "examples": [
-                        30
+                        300
                     ]
                 }
             },
@@ -256,8 +290,8 @@
         "copyRight": {
             "$id": "#/properties/copyRight",
             "type": "string",
-            "title": "The copyRight schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "Copyright statement",
+            "description": "Provides a copyright statement",
             "default": "",
             "examples": [
                 "This material has been recorded by the Thomas Stockhammer, who owns the copyright. Thomas Stockhammer (licensor) has licensed it under the Creative Commons Attribution 4.0 license (https://creativecommons.org/licenses/by/4.0/). In short, this means you can freely reuse and distribute this content, also commercially, for as long you provide a proper attribution."
@@ -278,15 +312,14 @@
             ],
             "required": [
                 "Name",
-                "Company",
                 "e-mail"
             ],
             "properties": {
                 "Name": {
                     "$id": "#/properties/Contact/properties/Name",
                     "type": "string",
-                    "title": "The Name schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Name",
+                    "description": "Provides the name of the contact person.",
                     "default": "",
                     "examples": [
                         "Thomas Stockhammer"
@@ -304,9 +337,9 @@
                 },
                 "e-mail": {
                     "$id": "#/properties/Contact/properties/e-mail",
-                    "type": "string",
-                    "title": "The e-mail schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "type": "e-mail",
+                    "title": "E-mail",
+                    "description": "E-mail address of contact person
                     "default": "",
                     "examples": [
                         "tsto@qti.qualcomm.com"
