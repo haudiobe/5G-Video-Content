@@ -328,8 +328,8 @@
                 "Company": {
                     "$id": "#/properties/Contact/properties/Company",
                     "type": "string",
-                    "title": "The Company schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Company",
+                    "description": "Company of the contact.",
                     "default": "",
                     "examples": [
                         "Qualcomm"
@@ -339,7 +339,7 @@
                     "$id": "#/properties/Contact/properties/e-mail",
                     "type": "e-mail",
                     "title": "E-mail",
-                    "description": "E-mail address of contact person
+                    "description": "E-mail address of contact person.",
                     "default": "",
                     "examples": [
                         "tsto@qti.qualcomm.com"
