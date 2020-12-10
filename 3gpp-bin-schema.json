@@ -47,10 +47,9 @@
   "properties": {
     "Bitstream": {
       "$id": "#/properties/Bitstream",
-      "type": "string",
-      "format": "uri-reference",
+      "type": "object",
       "title": "Bitstream",
-      "description": "The URI to the bitstream.",
+      "description": "Details on the bitstream.",
       "default": {},
       "examples": [
         {
