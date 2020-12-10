@@ -45,7 +45,7 @@
         "Sequence": {
             "$id": "#/properties/Sequence",
             "type": "object",
-            "title": "Sequence schema",
+            "title": "Sequence",
             "description": "provides the details of the Sequence.",
             "default": {},
             "examples": [
@@ -65,7 +65,7 @@
                     "$id": "#/properties/Sequence/properties/URI",
                     "type": "string",
                     "format": "uri-reference",
-                    "title": "The URI schema",
+                    "title": "URI",
                     "description": "An explanation about the purpose of this instance.",
                     "default": "",
                     "examples": [
@@ -75,7 +75,7 @@
                 "md5": {
                     "$id": "#/properties/Sequence/properties/md5",
                     "type": "string",
-                    "title": "The md5 schema",
+                    "title": "MD5",
                     "description": "MD5 of the sequence file according to RFC1321.",
                     "default": "",
                     "examples": [
@@ -86,7 +86,7 @@
                     "$id": "#/properties/Sequence/properties/thumbnail",
                     "type": "string",
                     "format": "uri-reference",
-                    "title": "The thumbnail schema",
+                    "title": "Thumbnail image",
                     "description": "An image providing a thumbnail.",
                     "default": "",
                     "examples": [
@@ -97,7 +97,7 @@
                     "$id": "#/properties/Sequence/properties/preview",
                     "type": "string",
                     "format": "uri-reference",
-                    "title": "The preview schema",
+                    "title": "MP4 preview",
                     "description": "An mp4 providing a preview.",
                     "default": "",
                     "examples": [
@@ -110,7 +110,7 @@
         "Properties": {
             "$id": "#/properties/Properties",
             "type": "object",
-            "title": "The Properties schema",
+            "title": "Properties",
             "description": "An explanation about the purpose of this instance.",
             "default": {},
             "examples": [
@@ -161,7 +161,7 @@
                     "type": "integer",
                     "title": "Height",
                     "description": "Height of first component in number of pixel.",
-                    "default": 0,
+                    "default": 1080,
                     "examples": [
                         2160,
                         1080,
