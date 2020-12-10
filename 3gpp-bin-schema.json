@@ -48,7 +48,7 @@
     "Bitstream": {
       "$id": "#/properties/Bitstream",
       "type": "string",
-      "format": "uri",
+      "format": "uri-reference",
       "title": "Bitstream",
       "description": "The URI to the bitstream.",
       "default": {},
@@ -122,6 +122,7 @@
         "sequence": {
           "$id": "#/properties/Generation/properties/sequence",
           "type": "string",
+          "format": "uri-reference",
           "title": "Reference Sequence",
           "description": "provides a URI to the reference sequence used for encoding. Should point to a 3GPP raw json doc.",
           "default": "",
@@ -143,6 +144,7 @@
         "config-file": {
           "$id": "#/properties/Generation/properties/config-file",
           "type": "string",
+          "format": "uri-reference",
           "title": "Configuration File",
           "description": "configuration file used for encoding.",
           "default": "",
@@ -163,7 +165,7 @@
         "log-file": {
           "$id": "#/properties/Generation/properties/log-file",
           "type": "string",
-          "format": "uri",
+          "format": "uri-reference",
           "title": "Encoder Log File",
           "description": "Encoder log file reference.",
           "default": "",
@@ -205,7 +207,7 @@
         "log-file": {
           "$id": "#/properties/Reconstruction/properties/log-file",
           "type": "string",
-          "format": "uri",
+          "format": "uri-reference",
           "title": "Log File",
           "description": "provides a URI to the decoder log file.",
           "default": "",
