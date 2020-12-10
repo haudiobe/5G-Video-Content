@@ -85,7 +85,7 @@
                 "thumbnail": {
                     "$id": "#/properties/Sequence/properties/thumbnail",
                     "type": "string",
-                    "format": "uri",
+                    "format": "uri-reference",
                     "title": "The thumbnail schema",
                     "description": "An image providing a thumbnail.",
                     "default": "",
@@ -96,7 +96,7 @@
                 "preview": {
                     "$id": "#/properties/Sequence/properties/preview",
                     "type": "string",
-                    "format": "uri",
+                    "format": "uri-reference",
                     "title": "The preview schema",
                     "description": "An mp4 providing a preview.",
                     "default": "",
