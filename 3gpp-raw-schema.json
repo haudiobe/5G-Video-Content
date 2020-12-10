@@ -18,6 +18,7 @@
                 "height": 720,
                 "format": "yuv",
                 "packing": "interleaved",
+                "scan": "progressive",
                 "subsampling": "420",
                 "bitDepth": 8,
                 "frameRate": 30,
@@ -119,6 +120,7 @@
                     "height": 720,
                     "format": "yuv",
                     "packing": "interleaved",
+                    "scan": "progressive",
                     "subsampling": "420",
                     "bitDepth": 8,
                     "frameRate": 30,
@@ -135,6 +137,7 @@
                 "height",
                 "format",
                 "packing",
+                "scan",
                 "subsampling",
                 "bitDepth",
                 "frameRate",
@@ -183,6 +186,14 @@
                     "title": "Component packing",
                     "description": "How is the component packed.",
                     "default": "planar"
+                },
+                "scan": {
+                    "$id": "#/properties/Properties/properties/scan",
+                    "type": "string",
+                    "enum": ["progressive", "interlace"],                    
+                    "title": "Scan type",
+                    "description": "What is is the scan type.",
+                    "default": "progressive"
                 },
                 "subsampling": {
                     "$id": "#/properties/Properties/properties/subsampling",
