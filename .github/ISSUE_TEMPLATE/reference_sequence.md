@@ -16,6 +16,7 @@ You may also
 4) Fill in the data on the right hand side
 5) Copy the form data and paste it below
 
+```javascript
     {
       "Sequence": {
         "Name": "Sequence",
