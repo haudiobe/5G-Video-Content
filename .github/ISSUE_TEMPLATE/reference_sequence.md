@@ -9,7 +9,7 @@ assignees: ''
 
 Please fill in all **bold** information in JSON. You may also fill in _italics_ if available. The best is to replace the information.
 
-```json
+```javascript
     {
       "Sequence": {
         "Name": "Sequence",
