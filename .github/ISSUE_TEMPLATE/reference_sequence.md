@@ -9,8 +9,7 @@ assignees: ''
 
 Please fill in all **bold** information in JSON. You may also fill in _italics_ if available. The best is to replace the information.
 
-```javascript
-var s = "JavaScript syntax highlighting"
+```json
     {
       "Sequence": {
         "Name": "Sequence",
@@ -45,3 +44,4 @@ var s = "JavaScript syntax highlighting"
         "e-mail": "tsto@qti.qualcomm.com"
       }
     }
+```
