@@ -10,6 +10,7 @@
       "Bitstream": {
         "URI": "./sequence.bin",
         "md5": "824fe384be7b0095c391ff6c5a5acc53",
+        "key": "S1-R1-264-QP27"
         "codecs": "avc1.64002a"
       },
       "Generation": {
@@ -55,6 +56,7 @@
         {
           "URI": "./sequence.bin",
           "md5": "824fe384be7b0095c391ff6c5a5acc53",
+          "key": "S1-R1-264-QP27",
           "codecs": "avc1.64002a"
         }
       ],
@@ -82,6 +84,16 @@
           "default": "",
           "examples": [
             "824fe384be7b0095c391ff6c5a5acc53"
+          ]
+        },
+        "key": {
+          "$id": "#/properties/Bitstream/properties/key",
+          "type": "string",
+          "title": "Key",
+          "description": "Key as used in TR 26.955.",
+          "default": "",
+          "examples": [
+            "S1-R1-264-QP27"
           ]
         },
         "codecs": {
