@@ -7,9 +7,15 @@ assignees: ''
 
 ---
 
-Please fill in all **bold** information in JSON. You may also fill in _italics_ if available. The best is to replace the information.
+Please fill in all information in JSON below by replacing the values. The schema is provided here: https://github.com/haudiobe/5G-Video-Content/blob/main/3gpp-raw-schema.json
 
-```javascript
+You may also
+1) copy the schema from here https://github.com/haudiobe/5G-Video-Content/blob/main/3gpp-raw-schema.json
+2) goto here: https://rjsf-team.github.io/react-jsonschema-form/
+3) paste the schema in the JSON Schema field
+4) Fill in the data on the right hand side
+5) Copy the form data and paste it below
+
     {
       "Sequence": {
         "Name": "Sequence",
