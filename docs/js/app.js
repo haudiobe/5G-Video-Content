@@ -49,14 +49,14 @@ function tokenize(s) {
   return terms;
 }
 
-$.getJSON("http://dash.akamaized.net/WAVE/vectors/database.json?t=1600387771", function (data) {
+$.getJSON("http://dash.akamaized.net/WAVE/3GPP/5GVideo/database.json?t=1600387771", function (data) {
 
   var player = dashjs.MediaPlayer().create();
   let app = new Vue({
     el: '#app',
     data: {
       database: data,
-      baseURL: "http://dash.akamaized.net/WAVE/vectors/", 
+      baseURL: "http://dash.akamaized.net/WAVE/3GPP/5GVideo/", 
       search: '',
       results: Object.values(data)
     },
