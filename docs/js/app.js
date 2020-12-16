@@ -49,7 +49,7 @@ function tokenize(s) {
   return terms;
 }
 
-$.getJSON("http://dash.akamaized.net/WAVE/3GPP/5GVideo/database.json?t=1600387771", function (data) {
+$.getJSON("http://dash.akamaized.net/WAVE/3GPP/5GVideo/database.json", function (data) {
 
   var player = dashjs.MediaPlayer().create();
   let app = new Vue({
