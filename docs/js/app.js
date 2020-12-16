@@ -50,7 +50,18 @@ function tokenize(s) {
 }
 
 $.getJSON("http://dash.akamaized.net/WAVE/3GPP/5GVideo/database.json", function (data) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});
 
+$.getJSON("http://dash.akamaized.net/WAVE/3GPP/5GVideo/database.json", function (data) {
   var player = dashjs.MediaPlayer().create();
   let app = new Vue({
     el: '#app',
