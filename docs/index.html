@@ -85,6 +85,7 @@
                      </thead>
                      <tbody>
                         <tr v-for="(item, index) in results" :key="index">
+                           <td>{{ item }}</td>
                            <td scope="row"><a v-bind:href="`${baseURL}${item.mpdPath}`">{{ item.mpdPath }}</a></td>
                            <td>
                               <ol>
