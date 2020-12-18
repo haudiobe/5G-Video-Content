@@ -27,6 +27,7 @@
       },
       "Metrics": {
         "Bitrate": 4.32,
+        "FileSize": 100000,
         "PSNR": 27.2,
         "SSIM": 14.8,
         "VMAF": 18.7
@@ -248,21 +249,32 @@
       "examples": [
         {
           "Bitrate": 4.32,
+          "FileSize": 100000,
           "PSNR": 27.2,
           "SSIM": 14.3,
           "VMAF": 18.4
         }
       ],
       "required": [
-        "Bitrate",
+        "FileSize",
         "PSNR"
       ],
       "properties": {
         "Bitrate": {
-          "$id": "#/properties/Metrics/properties/PSNR",
+          "$id": "#/properties/Metrics/properties/Bitrate",
           "type": "number",
           "title": "Bitrate",
-          "description": "Bitrate as defined in TR26.955 in MBit/s.",
+          "description": "Bitrate as defined in TR26.955 in MBit/s using encoder log.",
+          "default": "",
+          "examples": [
+            4.32
+          ]
+        },
+         "FileSize": {
+          "$id": "#/properties/Metrics/properties/FileSize",
+          "type": "number",
+          "title": "FileSize",
+          "description": "FileSize in bytes.",
           "default": "",
           "examples": [
             4.32
